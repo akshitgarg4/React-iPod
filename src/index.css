@@ -6,4 +6,35 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.ipod{
+  margin:auto;
+  width:20%;
+  height:auto;
+}
+.lower-body{
+  width:260px;
+  height:220px;
+  margin-top: 99%;
+  background-color: grey;
+  padding:1px;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+.outer-circle{
+  height:180px;
+  background-color: red;
+  width:180px;
+  margin:20px auto;
+  border-radius: 50%;
+  position: relative;
+}
+.inner-circle{
+  height:90px;
+  margin-top: 10px;
+  position:absolute;
+  top:35px;
+  left:45px;
+  background-color: blue;
+  width:90px;
+  border-radius: 50%;
+}
