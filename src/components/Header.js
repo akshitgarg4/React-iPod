@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from 'react-live-clock';
 
  
 class Header extends React.Component{
@@ -9,26 +10,13 @@ class Header extends React.Component{
             var dateT = date;
             return dateT;
         }
-        time = () => {
-            var today = new Date();
-            var min='0';
-            if(today.getMinutes()<10)
-            {
-                min=min+today.getMinutes();
-            }
-            else{
-                min=today.getMinutes();
-            }
-            var time = today.getHours() + ":" + min;
-            var Time =time;
-            return Time;
-       }
+        
        render()
        {
            return(
             <div  className="header">
                 <p style={{paddingLeft:14,display:'inline-block',margin:2}}>{this.date()}</p>
-                <p style={{paddingLeft:100,display:'inline-block',margin:2}}>{this.time()}</p>
+                <p style={{paddingLeft:90,display:'inline-block',margin:2}}><Clock format={'HH:mm:ss'} ticking={true} timezone={'GMT+5:30'} /></p>
             </div>
 
            )
