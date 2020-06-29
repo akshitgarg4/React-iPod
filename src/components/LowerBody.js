@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 //var ZingTouch = require('zingtouch');
 import ZingTouch from 'zingtouch';
+import {changeMenu1,changeMenu2} from '../actions';
 
 
  
@@ -19,16 +20,18 @@ class LowerBody extends React.Component{
         {
             let dist=event.detail.distanceFromLast;
             this.change_in_angle+=dist;
-            if(this.change_in_angle>15)
+            if(this.change_in_angle>30)
             {
                 console.log('clockwise');
                 //console.log(this.change_in_angle);
+                this.props.dispatch(changeMenu1(this.props.activeMenu));
                 this.change_in_angle=0;
 
             }
-            else if(this.change_in_angle<-15)
+            else if(this.change_in_angle<-30)
             {
                 console.log('anti-clockwise');
+                this.props.dispatch(changeMenu2(this.props.activeMenu));
                 //console.log(this.change_in_angle);
                 this.change_in_angle=0;
             }
@@ -104,7 +107,16 @@ const styles={
 }
 function callback(state)
 {
-  return {}
+  return {
+    coverflow:state.coverflow,
+    game:state.game,
+    music:state.music,
+    setting:state.setting,
+    menu:state.menu,
+    menuItems:state.menuItems,
+    activeMenu:state.activeMenu
+
+  }
 }
 const connectedLowerBodyComponent=connect(callback)(LowerBody);
 export default connectedLowerBodyComponent;
