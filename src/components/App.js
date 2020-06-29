@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import LowerBody from './LowerBody';
+import MainScreen from './MainScreen';
+
 
 
 function App() {
@@ -10,9 +12,7 @@ function App() {
       <div className="ipod">
         <div className="upper-body">
           <Header/>
-          <div className="main-screen">
-            
-          </div>
+          <MainScreen/>
         </div>
         <LowerBody/> 
       </div>
