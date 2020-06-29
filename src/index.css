@@ -15,14 +15,14 @@ body {
   width:260px;
   height:220px;
   margin-top: 99%;
-  background-color: grey;
+  background-color: #cccccc;
   padding:1px;
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
 }
 .outer-circle{
   height:180px;
-  background-color: red;
+  background-color: #f5f1f1;
   width:180px;
   margin:20px auto;
   border-radius: 50%;
@@ -34,7 +34,7 @@ body {
   position:absolute;
   top:35px;
   left:45px;
-  background-color: blue;
+  background-color: #e8e6e6;
   width:90px;
   border-radius: 50%;
 }
