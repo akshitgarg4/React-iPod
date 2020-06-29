@@ -8,15 +8,29 @@ body {
 }
 .ipod{
   margin:auto;
-  width:20%;
+  width:267px;
   height:auto;
 }
+.upper-body{
+  width:inherit;
+  height:300px;
+  margin-top: 10%;
+  background-color: lightgrey;
+  border-top-right-radius: 10%;
+  border-top-left-radius: 10%;
+  overflow:hidden;
+}
+.header{
+  width:inherit;
+  height:25px;
+  background-color: lightgrey;
+  border-bottom: 2px solid grey;
+}
 .lower-body{
-  width:260px;
+  width:inherit;
   height:220px;
-  margin-top: 99%;
-  background-color: #cccccc;
-  padding:1px;
+  background-color: lightgrey;
+  padding-top:1px;
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
 }
