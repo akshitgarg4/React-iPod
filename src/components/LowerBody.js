@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 
  
 class LowerBody extends React.Component{
@@ -22,5 +24,9 @@ class LowerBody extends React.Component{
        }
 
 }
-
-export default LowerBody;
+function callback(state)
+{
+  return {}
+}
+const connectedLowerBodyComponent=connect(callback)(LowerBody);
+export default connectedLowerBodyComponent;

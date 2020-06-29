@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 
  
 class MainScreen extends React.Component{
@@ -7,12 +9,14 @@ class MainScreen extends React.Component{
        {
            return(
             <div className="main-screen">
-            
-          </div>
-
+            </div>
            )
        }
 
 }
-
-export default MainScreen;
+function callback(state)
+{
+  return {}
+}
+const connectedMainScreenComponent=connect(callback)(MainScreen);
+export default connectedMainScreenComponent;
