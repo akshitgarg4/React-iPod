@@ -10,6 +10,9 @@ function App() {
       <div className="ipod">
         <div className="upper-body">
           <Header/>
+          <div className="main-screen">
+            
+          </div>
         </div>
         <LowerBody/> 
       </div>

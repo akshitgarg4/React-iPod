@@ -6,14 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*main outer div*/
 .ipod{
   margin:auto;
   width:267px;
   height:auto;
 }
+/*upper part containing header and main screen*/
 .upper-body{
   width:inherit;
-  height:300px;
+  height:300px; 
   margin-top: 10%;
   background-color: lightgrey;
   border-top-right-radius: 10%;
@@ -26,6 +28,15 @@ body {
   background-color: lightgrey;
   border-bottom: 2px solid grey;
 }
+.main-screen{
+  width:80%;
+  margin:auto;
+  box-shadow: 0 0 6px black;
+  height:220px;
+  margin-top:20px;
+  background-color:#f5f1f1;
+}
+/*lower part containing the main controls*/
 .lower-body{
   width:inherit;
   height:220px;
