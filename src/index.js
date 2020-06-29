@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 
+
 //made a common store to which every component has access
 import {createStore} from 'redux';
 

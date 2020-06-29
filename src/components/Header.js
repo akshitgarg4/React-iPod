@@ -16,7 +16,7 @@ class Header extends React.Component{
            return(
             <div  className="header">
                 <p style={{paddingLeft:14,display:'inline-block',margin:2}}>{this.date()}</p>
-                <p style={{paddingLeft:90,display:'inline-block',margin:2}}><Clock format={'HH:mm:ss'} ticking={true} timezone={'GMT+5:30'} /></p>
+                <p style={{paddingLeft:90,display:'inline-block',margin:2}}><Clock format={'HH:mm:ss'} ticking={true} timezone={'GMT'} /></p>
             </div>
 
            )
