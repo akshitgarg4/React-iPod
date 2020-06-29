@@ -1,4 +1,4 @@
-import {ANTI_CLOCKWISE,CLOCKWISE,MAIN_MENU} from '../actions';
+import {ANTI_CLOCKWISE,CLOCKWISE,MAIN_MENU,SELECT} from '../actions';
 var initialState={
     activeMenu:'game',
     coverflow:false,
@@ -56,6 +56,43 @@ export default function rootReducer (state=initialState,action)
                     setting:false,
                     menu:true} 
             }
+        case SELECT:
+            if(action.curr === 'game')
+            {
+                return {...state,
+                    coverflow:false,
+                    game:true,
+                    music:false,
+                    setting:false,
+                    menu:false}
+            }
+            else if(action.curr === 'music')
+            {
+                return {...state,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menu:false}
+            }
+            else if(action.curr === 'setting')
+            {
+                return {...state,
+                    coverflow:false,
+                    game:false,
+                    music:false,
+                    setting:true,
+                    menu:false}
+            }
+            else{
+                return {...state,
+                    coverflow:true,
+                    game:false,
+                    music:false,
+                    setting:false,
+                    menu:false}
+            }
+            
         default:
             return state
     }

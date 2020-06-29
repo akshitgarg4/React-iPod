@@ -2,6 +2,7 @@
 export const CLOCKWISE='CLOCKWISE';
 export const ANTI_CLOCKWISE='ANTI_CLOCKWISE';
 export const MAIN_MENU='MAIN_MENU'
+export const SELECT="SELECT"
 
 
 //action creators
@@ -20,10 +21,16 @@ export function changeMenu2(curr)
         curr:curr
     }
 }
-export function mainMenu(curr)
+export function mainMenu()
 {
     return {
-        type:MAIN_MENU,
+        type:MAIN_MENU
+    }
+}
+export function selectOpt(curr)
+{
+    return {
+        type:SELECT,
         curr:curr
     }
 }

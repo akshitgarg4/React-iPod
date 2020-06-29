@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 //var ZingTouch = require('zingtouch');
 import ZingTouch from 'zingtouch';
-import {changeMenu1,changeMenu2,mainMenu} from '../actions';
+import {changeMenu1,changeMenu2,mainMenu,selectOpt} from '../actions';
 
 
  
@@ -49,12 +49,12 @@ class LowerBody extends React.Component{
            return(
             <div className="lower-body">
                 <div className="outer-circle ">
-                    <button style={styles.button} onClick={()=>{this.props.dispatch(mainMenu(this.props.activeMenu));}}>MENU</button>
+                    <button style={styles.button} onClick={()=>{this.props.dispatch(mainMenu());}}>MENU</button>
                     <i className="fas fa-backward" style={styles.backwards}></i>
                     <i className="fas fa-forward"  style={styles.forwards}></i>
                     <p style={styles.play}><i className="fas fa-play" ></i></p>
                     <div className="inner-circle">
-                    <p style={styles.select}>SELECT</p>
+                    <p style={styles.select} onClick={()=>{this.props.dispatch(selectOpt(this.props.activeMenu));}}>SELECT</p>
                     </div>
                 </div>
             </div>
