@@ -55,16 +55,15 @@ class LowerBody extends React.Component{
         });
 
     }
+    //to change fromplay to pause or pause to play
     changestate =() =>{
         var x=document.getElementById('audio');
         
         if(this.props.isplaying)
         {
-            console.log("pause");
             x.pause();
         }
         else{
-            console.log("play");
             x.play();
         }
     }
@@ -74,8 +73,8 @@ class LowerBody extends React.Component{
            return(
             <div className="lower-body">
                 <div className="outer-circle ">
+                    {/*buttons on ipod*/}
                     <button style={styles.button} onClick={()=>{this.props.dispatch(mainMenu());}}>MENU</button>
-                    
                     <button style={styles.backwards} onClick={()=>{this.props.dispatch(nextsong());}}><i className="fas fa-backward" ></i></button>
                     <button  style={styles.forwards} onClick={()=>{this.props.dispatch(prevsong());}}><i className="fas fa-forward" ></i></button>
                     { !this.props.isplaying && <button style={styles.play} onClick={()=>{this.changestate();}}><i className="fas fa-play"></i></button>}

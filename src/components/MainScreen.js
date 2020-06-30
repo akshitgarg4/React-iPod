@@ -12,6 +12,7 @@ class MainScreen extends React.Component{
        {
            return(
             <div className="main-screen">
+              {/*show the page according to selected option*/}
               { this.props.homepage && <img style={{height:220,width:213}} src="https://s4827.pcdn.co/wp-content/uploads/2018/03/white_ipad_wallpaper_2.jpg" alt="screen-wallpaper"/>}
               { this.props.coverflow && <img style={{height:220,width:213}} src="https://atlas-content-cdn.pixelsquid.com/stock-images/file-folder-mdmADN9-600.jpg" alt="screen-wallpaper"/>}
               { this.props.game && <img  style={{height:220,width:213.6}} alt="game-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGSo_B5N60duwmiQIvH7h2vfgkMTfnQuTV1w&usqp=CAU"/>}

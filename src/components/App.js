@@ -4,7 +4,6 @@ import React from 'react';
 import Header from './Header';
 import LowerBody from './LowerBody';
 import MainScreen from './MainScreen';
-import { connect } from 'react-redux';
 
 
 
@@ -23,10 +22,4 @@ function App() {
   );
 }
 
-//to pass the store items as props used react-redux
-function callback(state)
-{
-  return {}
-}
-const connectedAppComponent=connect(callback)(App);
-export default connectedAppComponent;
+export default App;

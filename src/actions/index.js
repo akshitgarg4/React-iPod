@@ -1,16 +1,20 @@
 //action types
+
+//for movement on main menu
 export const CLOCKWISE='CLOCKWISE';
 export const ANTI_CLOCKWISE='ANTI_CLOCKWISE';
+
+//for movement on songs menu
 export const ANTICLOCKWISE_SONG='ANTICLOCKWISE_SONG';
 export const CLOCKWISE_SONG='CLOCKWISE_SONG';
+
+//click events of buttons present on ipod
 export const MAIN_MENU='MAIN_MENU';
 export const SELECT="SELECT";
 export const PAUSE="PAUSE";
 export const PLAY="PLAY";
 export const NEXT_SONG="NEXT_SONG";
 export const PREV_SONG="PREV_SONG";
-
-
 export const SELECT_SONG="SELECT_SONG";
 
 
@@ -33,7 +37,7 @@ export function changeMenu2(curr)
         curr:curr
     }
 }
-
+//to change the active menu in songs menu in clockwise direction
 export function changeMenuSong1(curr)
 {
     return {
@@ -42,7 +46,7 @@ export function changeMenuSong1(curr)
 
     }
 }
-//to change active menu in anti_clockwise direction 
+//to change active menu in songs menu in anti_clockwise direction 
 export function changeMenuSong2(curr)
 {
     return {
@@ -67,6 +71,7 @@ export function selectOpt(curr)
         curr:curr
     }
 }
+// to select the song 
 export function selectOpt2(curr)
 {
     return {
@@ -74,24 +79,28 @@ export function selectOpt2(curr)
         curr:curr
     }
 }
+//to pause the song
 export function pause()
 {
     return {
         type:PAUSE
     }
 }
+//to play the song
 export function play()
 {
     return {
         type:PLAY
     }
 }
+//play next song
 export function nextsong()
 {
     return {
         type:NEXT_SONG
     }
 }
+//play prev song
 export function prevsong()
 {
     return {

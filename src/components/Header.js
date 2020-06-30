@@ -3,7 +3,7 @@ import Clock from 'react-live-clock';
 
  
 class Header extends React.Component{
-        
+        //to show live date and time at top
         date = () => {
             var today = new Date();
             var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
