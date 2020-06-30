@@ -1,4 +1,4 @@
-import {ANTI_CLOCKWISE,CLOCKWISE,ANTICLOCKWISE_SONG,CLOCKWISE_SONG,MAIN_MENU,SELECT,SELECT_SONG,PAUSE,PLAY} from '../actions';
+import {ANTI_CLOCKWISE,CLOCKWISE,ANTICLOCKWISE_SONG,CLOCKWISE_SONG,MAIN_MENU,SELECT,SELECT_SONG,PAUSE,PLAY,NEXT_SONG,PREV_SONG} from '../actions';
 
 //initial state of store
 var initialState={
@@ -106,7 +106,7 @@ export default function rootReducer (state=initialState,action)
             }
         case MAIN_MENU:
             {
-                if(state.play === '')
+                if(state.play === '' || state.play === 'song1' || state.play === 'song2' || state.play === 'song3' || state.play === 'song4' )
                 {
                     return {...state,
                         homepage:false,
@@ -135,6 +135,162 @@ export default function rootReducer (state=initialState,action)
             return {...state,paused:true,isplaying:false}
         case PLAY:
             return {...state,paused:false,isplaying:true}
+        case PREV_SONG:
+            if(state.play==='')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song1',
+                    activeSong:'song1'
+                }
+            }
+            else if(state.play==='song1')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song4',
+                    activeSong:'song4'
+                }
+            }
+            else if(state.play==='song4')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song3',
+                    activeSong:'song3'
+                }
+            }
+            else if(state.play==='song3')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song2',
+                    activeSong:'song2'
+                }
+            }
+            else
+            {
+                console.log("hiiiii");
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song1',
+                    activeSong:'song1'
+                }
+            }
+        case NEXT_SONG:
+            if(state.play==='')
+            {
+                
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song1',
+                    activeSong:'song1'
+                }
+            }
+            else if(state.play==='song1')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song2',
+                    activeSong:'song2'
+                }
+            }
+            else if(state.play==='song2')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song3',
+                    activeSong:'song3'
+                }
+            }
+            else if(state.play==='song3')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song4',
+                    activeSong:'song4'
+                }
+            }
+            else
+            {
+                console.log("hiiiii");
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    isplaying:true,
+                    play:'song1',
+                    activeSong:'song1'
+                }
+            }
+
         case SELECT:
             if(action.curr === 'game')
             {

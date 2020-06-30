@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ZingTouch from 'zingtouch';
-import {changeMenu1,changeMenu2,mainMenu,selectOpt,selectOpt2,changeMenuSong1,changeMenuSong2} from '../actions';
+import {changeMenu1,changeMenu2,mainMenu,selectOpt,selectOpt2,changeMenuSong1,changeMenuSong2,nextsong,prevsong} from '../actions';
 
 
  
@@ -76,8 +76,8 @@ class LowerBody extends React.Component{
                 <div className="outer-circle ">
                     <button style={styles.button} onClick={()=>{this.props.dispatch(mainMenu());}}>MENU</button>
                     
-                    <button style={styles.backwards}><i className="fas fa-backward" ></i></button>
-                    <button  style={styles.forwards}><i className="fas fa-forward" ></i></button>
+                    <button style={styles.backwards} onClick={()=>{this.props.dispatch(nextsong());}}><i className="fas fa-backward" ></i></button>
+                    <button  style={styles.forwards} onClick={()=>{this.props.dispatch(prevsong());}}><i className="fas fa-forward" ></i></button>
                     { !this.props.isplaying && <button style={styles.play} onClick={()=>{this.changestate();}}><i className="fas fa-play"></i></button>}
                     { this.props.isplaying && <button style={styles.play} onClick={()=>{this.changestate();}}><i className="fas fa-pause"></i></button>}
                     <div className="inner-circle">

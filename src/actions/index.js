@@ -7,6 +7,8 @@ export const MAIN_MENU='MAIN_MENU';
 export const SELECT="SELECT";
 export const PAUSE="PAUSE";
 export const PLAY="PLAY";
+export const NEXT_SONG="NEXT_SONG";
+export const PREV_SONG="PREV_SONG";
 
 
 export const SELECT_SONG="SELECT_SONG";
@@ -82,5 +84,17 @@ export function play()
 {
     return {
         type:PLAY
+    }
+}
+export function nextsong()
+{
+    return {
+        type:NEXT_SONG
+    }
+}
+export function prevsong()
+{
+    return {
+        type:PREV_SONG
     }
 }
