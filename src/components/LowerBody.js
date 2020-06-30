@@ -26,13 +26,10 @@ class LowerBody extends React.Component{
                 {
                     this.props.dispatch(changeMenu1(this.props.activeMenu));
                 }
-                else if((this.props.music)){
+                else{
                     this.props.dispatch(changeMenuSong1(this.props.activeSong));
                 }
-                else
-                {
-
-                }
+                
                 this.change_in_angle=0;
 
             }
@@ -43,11 +40,8 @@ class LowerBody extends React.Component{
                 {
                   this.props.dispatch(changeMenu2(this.props.activeMenu));   
                 }
-                else if((this.props.music)){
+                else {
                     this.props.dispatch(changeMenuSong2(this.props.activeSong));
-                }
-                else{
-
                 }
                 this.change_in_angle=0;
             }
@@ -61,6 +55,19 @@ class LowerBody extends React.Component{
         });
 
     }
+    changestate =() =>{
+        var x=document.getElementById('audio');
+        
+        if(this.props.isplaying)
+        {
+            console.log("pause");
+            x.pause();
+        }
+        else{
+            console.log("play");
+            x.play();
+        }
+    }
         
        render()
        {
@@ -68,9 +75,11 @@ class LowerBody extends React.Component{
             <div className="lower-body">
                 <div className="outer-circle ">
                     <button style={styles.button} onClick={()=>{this.props.dispatch(mainMenu());}}>MENU</button>
-                    <i className="fas fa-backward" style={styles.backwards}></i>
-                    <i className="fas fa-forward"  style={styles.forwards}></i>
-                    <p style={styles.play}><i className="fas fa-play" ></i></p>
+                    
+                    <button style={styles.backwards}><i className="fas fa-backward" ></i></button>
+                    <button  style={styles.forwards}><i className="fas fa-forward" ></i></button>
+                    { !this.props.isplaying && <button style={styles.play} onClick={()=>{this.changestate();}}><i className="fas fa-play"></i></button>}
+                    { this.props.isplaying && <button style={styles.play} onClick={()=>{this.changestate();}}><i className="fas fa-pause"></i></button>}
                     <div className="inner-circle">
                     <p style={styles.select} onClick={()=>{
                         if(this.props.menu)
@@ -107,23 +116,30 @@ const styles={
     backwards:
     {
         display:"inline-block",
-        paddingTop:40,
-        paddingLeft:18,
+        marginTop:40,
+        marginLeft:10,
         color:'#848383',
-        cursor:'pointer'
+        cursor:'pointer',
+        outline:'none',
+        border:'none'
     },
     forwards:
     {
         paddingLeft:112,
         color:'#848383',
-        cursor:'pointer'
+        cursor:'pointer',
+        outline:'none',
+        border:'none'
     },
     play:
     {
+        marginLeft:80,
         textAlign:"center",
-        paddingTop:30,
+        marginTop:50,
         color:'#848383',
-        cursor:'pointer'
+        cursor:'pointer',
+        outline:'none',
+        border:'none'
     },
     select:
     {
@@ -146,7 +162,9 @@ function callback(state)
     menu:state.menu,
     menuItems:state.menuItems,
     activeMenu:state.activeMenu,
-    activeSong:state.activeSong
+    activeSong:state.activeSong,
+    isplaying:state.isplaying,
+    paused:state.paused
 
   }
 }

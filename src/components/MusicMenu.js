@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {pause,play} from '../actions';
 
 class MusicMenu extends React.Component{
-        
+    
        render()
        {
            return(
@@ -42,7 +43,7 @@ class MusicMenu extends React.Component{
                     {(this.props.activeSong==='song4' && this.props.activeMenu==='music' && this.props.play==='') && 
                     <div>
                     <p style={styles.para}>SONGS</p>
-                    <p style={styles.para2} >song1</p>
+                    <p style={styles.para2}>song1</p>
                     <p style={styles.para2}>song2</p>
                     <p style={styles.para2}>song3</p>
                     <p style={styles.active}>song4</p>
@@ -62,25 +63,26 @@ class MusicMenu extends React.Component{
                     {(this.props.play==='song1' && this.props.activeSong==='song1' ) && <div style={styles.container}>
                     <p style={styles.para}>Pachtaoge</p>
                     <img style={styles.img} alt="song-img" src="arijit.jpg"/>
-                    <audio style={styles.audio} src="./songs/Pachtaoge.mp3" controls loop></audio>
+                    <audio id='audio'  style={styles.audio} src="./songs/Pachtaoge.mp3" controls loop autoPlay onPlay={()=>{this.props.dispatch(play());}} onPause={()=>{this.props.dispatch(pause());}}></audio>
+                    
                     </div>
                     } 
                     {(this.props.play==='song2' && this.props.activeSong==='song2') && <div style={styles.container}>
                     <p style={styles.para}>Nikle Currant</p>
                     <img style={styles.img} alt="song-img" src="neha.jpg "/>
-                    <audio style={styles.audio} src="./songs/Nikle currant.mp3" controls loop></audio>
+                    <audio id='audio' style={styles.audio} src="./songs/Nikle currant.mp3" controls loop  autoPlay onPlay={()=>{this.props.dispatch(play());}} onPause={()=>{this.props.dispatch(pause());}}></audio>
                     </div>
                     }  
                     {(this.props.play==='song3' && this.props.activeSong==='song3') && <div style={styles.container}>
                     <p style={styles.para}>Tere Te</p>
                     <img style={styles.img} alt="song-img" src="guru.jpg"/>
-                    <audio style={styles.audio} src="./songs/Tere te.mp3 " controls loop></audio>
+                    <audio id='audio' style={styles.audio} src="./songs/Tere te.mp3 " controls loop  autoPlay onPlay={()=>{this.props.dispatch(play());}} onPause={()=>{this.props.dispatch(pause());}}></audio>
                     </div>
                     } 
                     {(this.props.play==='song4' && this.props.activeSong==='song4') && <div style={styles.container}>
                     <p style={styles.para}>Glorious Gallan</p>
                     <img style={styles.img} alt="song-img" src="diljit.jpg "/>
-                    <audio style={styles.audio} src="./songs/Glorious gallan.mp3" controls loop></audio>
+                    <audio id='audio' style={styles.audio} src="./songs/Glorious gallan.mp3" controls loop  autoPlay onPlay={()=>{this.props.dispatch(play());}} onPause={()=>{this.props.dispatch(pause());}}></audio>
                     </div>
                     } 
                     

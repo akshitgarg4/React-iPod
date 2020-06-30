@@ -1,4 +1,4 @@
-import {ANTI_CLOCKWISE,CLOCKWISE,ANTICLOCKWISE_SONG,CLOCKWISE_SONG,MAIN_MENU,SELECT,SELECT_SONG} from '../actions';
+import {ANTI_CLOCKWISE,CLOCKWISE,ANTICLOCKWISE_SONG,CLOCKWISE_SONG,MAIN_MENU,SELECT,SELECT_SONG,PAUSE,PLAY} from '../actions';
 
 //initial state of store
 var initialState={
@@ -11,6 +11,8 @@ var initialState={
     setting:false,
     menu:false,
     play:'',
+    paused:false,
+    isplaying:false,
     menuItems:false
 };
 
@@ -129,6 +131,10 @@ export default function rootReducer (state=initialState,action)
                 }
                 
             }
+        case PAUSE:
+            return {...state,paused:true,isplaying:false}
+        case PLAY:
+            return {...state,paused:false,isplaying:true}
         case SELECT:
             if(action.curr === 'game')
             {
@@ -196,6 +202,7 @@ export default function rootReducer (state=initialState,action)
                     setting:false,
                     menuItems:false,
                     menu:false,
+                    isplaying:true,
                     play:'song1'
                 }
             }
@@ -209,6 +216,7 @@ export default function rootReducer (state=initialState,action)
                     setting:false,
                     menuItems:false,
                     menu:false,
+                    isplaying:true,
                     play:'song2'
                 }
             }
@@ -222,6 +230,7 @@ export default function rootReducer (state=initialState,action)
                     setting:false,
                     menuItems:false,
                     menu:false,
+                    isplaying:true,
                     play:'song3'
                 }
             }
@@ -234,6 +243,7 @@ export default function rootReducer (state=initialState,action)
                     setting:false,
                     menuItems:false,
                     menu:false,
+                    isplaying:true,
                     play:'song4'
                 }
             }

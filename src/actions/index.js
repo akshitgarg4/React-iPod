@@ -5,6 +5,10 @@ export const ANTICLOCKWISE_SONG='ANTICLOCKWISE_SONG';
 export const CLOCKWISE_SONG='CLOCKWISE_SONG';
 export const MAIN_MENU='MAIN_MENU';
 export const SELECT="SELECT";
+export const PAUSE="PAUSE";
+export const PLAY="PLAY";
+
+
 export const SELECT_SONG="SELECT_SONG";
 
 
@@ -66,5 +70,17 @@ export function selectOpt2(curr)
     return {
         type:SELECT_SONG,
         curr:curr
+    }
+}
+export function pause()
+{
+    return {
+        type:PAUSE
+    }
+}
+export function play()
+{
+    return {
+        type:PLAY
     }
 }
