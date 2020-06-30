@@ -1,2 +1,2 @@
 ##  React-iPod
-iPod made using ReactJS and ZingTouch having functionality of games and songs.
+iPod made using ReactJS,Redux and ZingTouch having functionality of Games,Songs and Live Clock.
