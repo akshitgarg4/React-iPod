@@ -22,6 +22,8 @@ function App() {
     </div>
   );
 }
+
+//to pass the store items as props used react-redux
 function callback(state)
 {
   return {}

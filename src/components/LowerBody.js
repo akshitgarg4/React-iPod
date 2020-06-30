@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//var ZingTouch = require('zingtouch');
 import ZingTouch from 'zingtouch';
 import {changeMenu1,changeMenu2,mainMenu,selectOpt} from '../actions';
 
@@ -22,20 +21,20 @@ class LowerBody extends React.Component{
             this.change_in_angle+=dist;
             if(this.change_in_angle>30)
             {
-                console.log('clockwise');
-                //console.log(this.change_in_angle);
+                //to change the active menu in clockwise direction
                 this.props.dispatch(changeMenu1(this.props.activeMenu));
                 this.change_in_angle=0;
 
             }
             else if(this.change_in_angle<-30)
             {
-                console.log('anti-clockwise');
+                //to change the active menu in anticlockwise direction
                 this.props.dispatch(changeMenu2(this.props.activeMenu));
-                //console.log(this.change_in_angle);
                 this.change_in_angle=0;
             }
         });
+
+
         //to stop the change in menu when it is rotated in inner circle
         zt.bind(document.getElementsByClassName('inner-circle')[0], 'rotate', (event)=>
         {
@@ -105,9 +104,12 @@ const styles={
         cursor:'pointer'
     }
 }
+
+//to pass the store items as props used react-redux
 function callback(state)
 {
   return {
+    homepage:state.homepage,
     coverflow:state.coverflow,
     game:state.game,
     music:state.music,

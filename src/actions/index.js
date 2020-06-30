@@ -6,6 +6,8 @@ export const SELECT="SELECT"
 
 
 //action creators
+
+//to change active menu in clockwise direction 
 export function changeMenu1(curr)
 {
     return {
@@ -14,6 +16,7 @@ export function changeMenu1(curr)
 
     }
 }
+//to change active menu in anti_clockwise direction 
 export function changeMenu2(curr)
 {
     return {
@@ -21,12 +24,16 @@ export function changeMenu2(curr)
         curr:curr
     }
 }
+
+//to land the user on main menu list when he presses the menu button
 export function mainMenu()
 {
     return {
         type:MAIN_MENU
     }
 }
+
+//to select and show the item selected by the user on menu list
 export function selectOpt(curr)
 {
     return {

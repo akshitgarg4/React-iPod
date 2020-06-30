@@ -1,12 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-
-
  
 class Menu extends React.Component{
-    
-        
        render()
        {
            return(
@@ -17,24 +12,35 @@ class Menu extends React.Component{
                     <p style={styles.para2}>Music</p>
                     <p style={styles.para2}>Settings</p>
                     <p style={styles.para2}>CoverFlow</p>
+                    <p style={styles.para2}>Back</p>
                     </div>
                     }
                     {this.props.activeMenu==='music' && <div><p style={styles.para2} >Games</p>
                     <p style={styles.active}>Music</p>
                     <p style={styles.para2}>Settings</p>
                     <p style={styles.para2}>CoverFlow</p>
+                    <p style={styles.para2}>Back</p>
                     </div>
                     }
                     {this.props.activeMenu==='setting' && <div><p style={styles.para2} >Games</p>
                     <p style={styles.para2}>Music</p>
                     <p style={styles.active}>Settings</p>
                     <p style={styles.para2}>CoverFlow</p>
+                    <p style={styles.para2}>Back</p>
                     </div>
                     }
                     {this.props.activeMenu==='coverflow' && <div><p style={styles.para2} >Games</p>
                     <p style={styles.para2}>Music</p>
                     <p style={styles.para2}>Settings</p>
                     <p style={styles.active}>CoverFlow</p>
+                    <p style={styles.para2}>Back</p>
+                    </div>
+                    }
+                    {this.props.activeMenu==='homepage' && <div><p style={styles.para2} >Games</p>
+                    <p style={styles.para2}>Music</p>
+                    <p style={styles.para2}>Settings</p>
+                    <p style={styles.para2}>CoverFlow</p>
+                    <p style={styles.active}>Back</p>
                     </div>
                     }
                         
@@ -52,23 +58,29 @@ const styles={
         height:'inherit',
         paddingTop:2,
         fontSize:15,
+        fontWeight:400,
         paddingLeft:10
     },
     para:{
         textAlign:'center'
     },
     para2:{
-        fontSize:18
+        fontSize:15
     },
     active:{
-        fontSize:18,
+        fontSize:15,
         backgroundColor:'lightgrey'
     }
 
 }
+
+
+//to pass the store items as props used react-redux
+
 function callback(state)
 {
   return {
+    homepage:state.homepage,
     coverflow:state.coverflow,
     game:state.game,
     music:state.music,

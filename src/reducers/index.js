@@ -1,8 +1,11 @@
 import {ANTI_CLOCKWISE,CLOCKWISE,MAIN_MENU,SELECT} from '../actions';
+
+//initial state of store
 var initialState={
     activeMenu:'game',
+    homepage:true,
     coverflow:false,
-    game:true,
+    game:false,
     music:false,
     setting:false,
     menu:false,
@@ -26,12 +29,20 @@ export default function rootReducer (state=initialState,action)
             {
                 return {...state,activeMenu:'coverflow'} 
             }
+            else if(action.curr === 'coverflow')
+            {
+                return {...state,activeMenu:'homepage'} 
+            }
             else
             {
                 return {...state,activeMenu:'game'} 
             }
         case ANTI_CLOCKWISE:
             if(action.curr==='game')
+            {
+                return {...state,activeMenu:'homepage'}
+            }
+            if(action.curr==='homepage')
             {
                 return {...state,activeMenu:'coverflow'}
             }
@@ -50,6 +61,7 @@ export default function rootReducer (state=initialState,action)
         case MAIN_MENU:
             {
                 return {...state,
+                    homepage:false,
                     coverflow:false,
                     game:false,
                     music:false,
@@ -60,6 +72,7 @@ export default function rootReducer (state=initialState,action)
             if(action.curr === 'game')
             {
                 return {...state,
+                    homepage:false,
                     coverflow:false,
                     game:true,
                     music:false,
@@ -69,6 +82,7 @@ export default function rootReducer (state=initialState,action)
             else if(action.curr === 'music')
             {
                 return {...state,
+                    homepage:false,
                     coverflow:false,
                     game:false,
                     music:true,
@@ -78,15 +92,26 @@ export default function rootReducer (state=initialState,action)
             else if(action.curr === 'setting')
             {
                 return {...state,
+                    homepage:false,
                     coverflow:false,
                     game:false,
                     music:false,
                     setting:true,
                     menu:false}
             }
+            else if(action.curr === 'coverflow'){
+                return {...state,
+                    homepage:false,
+                    coverflow:true,
+                    game:false,
+                    music:false,
+                    setting:false,
+                    menu:false}
+            }
             else{
                 return {...state,
-                    coverflow:true,
+                    homepage:true,
+                    coverflow:false,
                     game:false,
                     music:false,
                     setting:false,
