@@ -1,8 +1,11 @@
 //action types
 export const CLOCKWISE='CLOCKWISE';
 export const ANTI_CLOCKWISE='ANTI_CLOCKWISE';
-export const MAIN_MENU='MAIN_MENU'
-export const SELECT="SELECT"
+export const ANTICLOCKWISE_SONG='ANTICLOCKWISE_SONG';
+export const CLOCKWISE_SONG='CLOCKWISE_SONG';
+export const MAIN_MENU='MAIN_MENU';
+export const SELECT="SELECT";
+export const SELECT_SONG="SELECT_SONG";
 
 
 //action creators
@@ -25,6 +28,23 @@ export function changeMenu2(curr)
     }
 }
 
+export function changeMenuSong1(curr)
+{
+    return {
+        type:CLOCKWISE_SONG,
+        curr:curr
+
+    }
+}
+//to change active menu in anti_clockwise direction 
+export function changeMenuSong2(curr)
+{
+    return {
+        type:ANTICLOCKWISE_SONG,
+        curr:curr
+    }
+}
+
 //to land the user on main menu list when he presses the menu button
 export function mainMenu()
 {
@@ -38,6 +58,13 @@ export function selectOpt(curr)
 {
     return {
         type:SELECT,
+        curr:curr
+    }
+}
+export function selectOpt2(curr)
+{
+    return {
+        type:SELECT_SONG,
         curr:curr
     }
 }

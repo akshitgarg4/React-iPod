@@ -1,15 +1,17 @@
-import {ANTI_CLOCKWISE,CLOCKWISE,MAIN_MENU,SELECT} from '../actions';
+import {ANTI_CLOCKWISE,CLOCKWISE,ANTICLOCKWISE_SONG,CLOCKWISE_SONG,MAIN_MENU,SELECT,SELECT_SONG} from '../actions';
 
 //initial state of store
 var initialState={
     activeMenu:'game',
+    activeSong:'song1',
     homepage:true,
     coverflow:false,
     game:false,
     music:false,
     setting:false,
     menu:false,
-    menuItems:['game','music','setting','coverflow']
+    play:'',
+    menuItems:false
 };
 
 export default function rootReducer (state=initialState,action)
@@ -58,15 +60,74 @@ export default function rootReducer (state=initialState,action)
             {
                 return {...state,activeMenu:'setting'} 
             }
+        case CLOCKWISE_SONG:
+            if(action.curr==='song1')
+            {
+                return {...state,activeMenu:'music',activeSong:'song2'}
+            }
+            else if(action.curr === 'song2')
+            {
+                return {...state,activeMenu:'music',activeSong:'song3'} 
+            }
+            else if(action.curr === 'song3')
+            {
+                return {...state,activeMenu:'music',activeSong:'song4'} 
+            }
+            else if(action.curr === 'song4')
+            {
+                return {...state,activeMenu:'music',activeSong:'back'} 
+            }
+            else
+            {
+                return {...state,activeMenu:'music',activeSong:'song1'} 
+            }
+        case ANTICLOCKWISE_SONG:
+            if(action.curr==='song1')
+            {
+                return {...state,activeMenu:'music',activeSong:'back'}
+            }
+            else if(action.curr === 'song2')
+            {
+                return {...state,activeMenu:'music',activeSong:'song1'} 
+            }
+            else if(action.curr === 'song3')
+            {
+                return {...state,activeMenu:'music',activeSong:'song2'} 
+            }
+            else if(action.curr === 'song4')
+            {
+                return {...state,activeMenu:'music',activeSong:'song3'} 
+            }
+            else
+            {
+                return {...state,activeMenu:'music',activeSong:'song4'} 
+            }
         case MAIN_MENU:
             {
-                return {...state,
-                    homepage:false,
-                    coverflow:false,
-                    game:false,
-                    music:false,
-                    setting:false,
-                    menu:true} 
+                if(state.play === '')
+                {
+                    return {...state,
+                        homepage:false,
+                        coverflow:false,
+                        game:false,
+                        music:false,
+                        setting:false,
+                        menuItems:false,
+                        menu:true,
+                        play:''} 
+                }
+                else{
+                    return {...state,
+                        homepage:false,
+                        coverflow:false,
+                        game:false,
+                        music:true,
+                        setting:false,
+                        menuItems:false,
+                        menu:false,
+                        play:''} 
+                }
+                
             }
         case SELECT:
             if(action.curr === 'game')
@@ -77,6 +138,7 @@ export default function rootReducer (state=initialState,action)
                     game:true,
                     music:false,
                     setting:false,
+                    menuItems:false,
                     menu:false}
             }
             else if(action.curr === 'music')
@@ -86,6 +148,9 @@ export default function rootReducer (state=initialState,action)
                     coverflow:false,
                     game:false,
                     music:true,
+                    play:'',
+                    activeSong:'song1',
+                    menuItems:false,
                     setting:false,
                     menu:false}
             }
@@ -95,6 +160,7 @@ export default function rootReducer (state=initialState,action)
                     homepage:false,
                     coverflow:false,
                     game:false,
+                    menuItems:false,
                     music:false,
                     setting:true,
                     menu:false}
@@ -104,6 +170,7 @@ export default function rootReducer (state=initialState,action)
                     homepage:false,
                     coverflow:true,
                     game:false,
+                    menuItems:false,
                     music:false,
                     setting:false,
                     menu:false}
@@ -114,10 +181,74 @@ export default function rootReducer (state=initialState,action)
                     coverflow:false,
                     game:false,
                     music:false,
+                    menuItems:false,
                     setting:false,
                     menu:false}
             }
-            
+        case SELECT_SONG:
+            if(action.curr === 'song1')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    play:'song1'
+                }
+            }
+            else if(action.curr === 'song2')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    play:'song2'
+                }
+            }
+            else if(action.curr === 'song3')
+            {
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    play:'song3'
+                }
+            }
+            else if(action.curr === 'song4'){
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:true,
+                    setting:false,
+                    menuItems:false,
+                    menu:false,
+                    play:'song4'
+                }
+            }
+            else{
+                return {...state,
+                    homepage:false,
+                    coverflow:false,
+                    game:false,
+                    music:false,
+                    setting:false,
+                    menuItems:false,
+                    menu:true,
+                    play:''
+                }
+            }   
         default:
             return state
     }

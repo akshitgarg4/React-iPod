@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ZingTouch from 'zingtouch';
-import {changeMenu1,changeMenu2,mainMenu,selectOpt} from '../actions';
+import {changeMenu1,changeMenu2,mainMenu,selectOpt,selectOpt2,changeMenuSong1,changeMenuSong2} from '../actions';
 
 
  
@@ -22,14 +22,33 @@ class LowerBody extends React.Component{
             if(this.change_in_angle>30)
             {
                 //to change the active menu in clockwise direction
-                this.props.dispatch(changeMenu1(this.props.activeMenu));
+                if(this.props.menu)
+                {
+                    this.props.dispatch(changeMenu1(this.props.activeMenu));
+                }
+                else if((this.props.music)){
+                    this.props.dispatch(changeMenuSong1(this.props.activeSong));
+                }
+                else
+                {
+
+                }
                 this.change_in_angle=0;
 
             }
             else if(this.change_in_angle<-30)
             {
                 //to change the active menu in anticlockwise direction
-                this.props.dispatch(changeMenu2(this.props.activeMenu));
+                if(this.props.menu)
+                {
+                  this.props.dispatch(changeMenu2(this.props.activeMenu));   
+                }
+                else if((this.props.music)){
+                    this.props.dispatch(changeMenuSong2(this.props.activeSong));
+                }
+                else{
+
+                }
                 this.change_in_angle=0;
             }
         });
@@ -53,7 +72,17 @@ class LowerBody extends React.Component{
                     <i className="fas fa-forward"  style={styles.forwards}></i>
                     <p style={styles.play}><i className="fas fa-play" ></i></p>
                     <div className="inner-circle">
-                    <p style={styles.select} onClick={()=>{this.props.dispatch(selectOpt(this.props.activeMenu));}}>SELECT</p>
+                    <p style={styles.select} onClick={()=>{
+                        if(this.props.menu)
+                        {
+                            this.props.dispatch(selectOpt(this.props.activeMenu));
+                        }
+                        else if(this.props.music)
+                        {
+                            this.props.dispatch(selectOpt2(this.props.activeSong));
+                        }
+                        else{}
+                        }}>SELECT</p>
                     </div>
                 </div>
             </div>
@@ -116,7 +145,8 @@ function callback(state)
     setting:state.setting,
     menu:state.menu,
     menuItems:state.menuItems,
-    activeMenu:state.activeMenu
+    activeMenu:state.activeMenu,
+    activeSong:state.activeSong
 
   }
 }
