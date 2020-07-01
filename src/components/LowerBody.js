@@ -57,15 +57,24 @@ class LowerBody extends React.Component{
     }
     //to change fromplay to pause or pause to play
     changestate =() =>{
-        var x=document.getElementById('audio');
-        
-        if(this.props.isplaying)
+        if(document.getElementById('audio'))
         {
-            x.pause();
+            //if song is being played then play/pause it
+            var x=document.getElementById('audio');
+        
+            if(this.props.isplaying)
+            {
+                x.pause();
+            }
+            else{
+                x.play();
+            }
         }
         else{
-            x.play();
+            //else play the first song
+            this.props.dispatch(nextsong());
         }
+        
     }
         
        render()
